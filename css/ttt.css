@@ -1,0 +1,45 @@
+li {
+  float: left;
+  margin: 0 auto;
+  background-color: gray;
+  border: 3px solid blue;
+  width: 150px;
+  height: 150px;
+
+}
+
+li:hover {
+  background-color: yellow;
+}
+
+ul {
+  margin: 0 auto;
+  /*border: 3px solid cyan;*/
+  list-style: none;
+  max-width: 480px;
+
+}
+
+body h1 {
+  margin: 0 auto;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+
+span {
+  margin-left: 50px;
+  font-size: 100px;
+}
+
+.x {
+  color: red;
+}
+
+.o {
+  color: cyan;
+}
