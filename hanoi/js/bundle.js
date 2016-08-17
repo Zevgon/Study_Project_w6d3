@@ -86,12 +86,16 @@
 	  }
 
 	  move(startTowerIdx, endTowerIdx) {
+	      console.log("In move");
 	      if (this.isValidMove(startTowerIdx, endTowerIdx)) {
 	        this.towers[endTowerIdx].push(this.towers[startTowerIdx].pop());
+	        console.log(this.towers);
 	        return true;
 	      } else {
+	        console.log(this.towers);
 	        return false;
 	      }
+
 	  }
 
 	  print() {
@@ -139,25 +143,72 @@
 	    this.game = game;
 	    this.$rootEl = rootEl;
 	    this.setupTowers();
-	    this.render();
+	    // this.render();
+	    this.startTower = undefined;
+	    this.clickTower();
 	  }
 
 	  setupTowers() {
 	    for (let i=0; i<3; i++){
 	      let ul = $("<ul>");
-	      for (let j=0; j<3; j++) {
+	      for (let j=2; j>-1; j--) {
 	        let li = $("<li>");
-	        ul.append(li);
+
+	        // let pos =
+	        ul.data("pos", `${i}`);
+	        if (this.game.towers[i][j] !== undefined ){
+	          li.css("background-color", "pink");
+	          li.css("border", "2px solid blue");
+	          li.css("width", this.game.towers[i][j] * 20);
+	          ul.append(li);
+	        } else {
+	          li.css("border", "2px solid white");
+	          ul.append(li);
+	        }
+
+	          // this.grid[i][j]
+	          // call({ "width": , valu * 100)""
 	      }
-	      $('.hanoi').append(ul);
+	      $('figure').append(ul);
+	      // $("ul")[0].addEventListener("click", this.clickTower());
 	    }
+	    $('figure').addClass('group');
 	  }
 
 	  render() {
+	    // document.body.innerHTML = "";
+	    $('ul').remove();
+	    this.setupTowers();
+	    this.clickTower();
+	  }
 
+	  clickTower () {
+	    //   $('ul').on("click", event => {
+	    //     if (this.startTower === undefined) {
+	    //     let startTower = $(event.currentTarget);
+	    //   });
+	    // } else {
+	    //   let endTower =
+	    // }
+	    // document.figure.innerHTML = "";
+	    $('ul').on("click", event => {
+	      // console.log("infinite?");
+	      if (this.startTower === undefined) {
+	        this.startTower = $(event.currentTarget);
+	        // console.log(this.startTower.data("pos"));
+	      } else {
+	        let endTower = $(event.currentTarget);
+	        // console.log(endTower.data("pos"));
+	        this.game.move(this.startTower.data("pos"), endTower.data("pos"));
+	        this.render();
+	        this.startTower = undefined;
+	      }
+	    });
 	  }
 
 	}
+
+	module.exports = HanoiView;
 
 
 /***/ }

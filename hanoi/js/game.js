@@ -24,12 +24,16 @@ class Game {
   }
 
   move(startTowerIdx, endTowerIdx) {
+      console.log("In move");
       if (this.isValidMove(startTowerIdx, endTowerIdx)) {
         this.towers[endTowerIdx].push(this.towers[startTowerIdx].pop());
+        console.log(this.towers);
         return true;
       } else {
+        console.log(this.towers);
         return false;
       }
+
   }
 
   print() {

@@ -1,7 +1,27 @@
 ul {
+  width: 50px;
+  padding: 20px;
+  float: left;
+  list-style: none;
   border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 li {
-  border: 4px dashed blue;
+  border-radius: 10px;
+  width: 50px;
+  height: 10px;
+  border: 0px solid blue;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+body {
+  margin: auto;
 }
