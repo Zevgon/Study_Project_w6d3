@@ -25,3 +25,7 @@ li {
 body {
   margin: auto;
 }
+
+.invisible {
+  border: none;
+}

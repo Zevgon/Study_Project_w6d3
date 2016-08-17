@@ -162,6 +162,7 @@
 	          li.css("width", this.game.towers[i][j] * 20);
 	          ul.append(li);
 	        } else {
+	          li.addClass("invisible");
 	          li.css("border", "2px solid white");
 	          ul.append(li);
 	        }
@@ -195,6 +196,17 @@
 	      // console.log("infinite?");
 	      if (this.startTower === undefined) {
 	        this.startTower = $(event.currentTarget);
+	        this.startTower.css("background-color", "red");
+	        for (let i = 0; i < this.startTower.children().length; i++ ){
+	          let liClass = $(this.startTower.children()[i]).attr('class');
+	          if (liClass === "invisible") {
+	            $(this.startTower.children()[i]).css("border", "2px solid red");
+	          }
+	        }
+	        // this.startTower.children.each( () => {
+	        //   // if (this
+	        //   console.log(this);
+	        // });
 	        // console.log(this.startTower.data("pos"));
 	      } else {
 	        let endTower = $(event.currentTarget);
