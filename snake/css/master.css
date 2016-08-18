@@ -1,0 +1,43 @@
+ul {
+  margin: 0 auto;
+  border: 2px solid black;
+  list-style: none;
+  max-width: 400px;
+  /*display: flex;*/
+
+  /*align-items: column;*/
+}
+
+.header {
+  text-align: center;
+  /*margin: 0 auto 0 auto;*/
+  /*display: flex;
+  align-content: center;*/
+}
+
+li {
+  border: 1px solid white;
+  background-color: #ccc;
+  float: left;
+  width:  18px;
+  height: 18px;
+}
+
+.grid {
+  padding: 0;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+
+.blank {
+  background-color: white;
+}
+
+.snake {
+  background-color: blue;
+}
